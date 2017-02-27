@@ -1,21 +1,11 @@
-(function(){
-	initModal({
-		h : 200,
-		w : 400,
-		text : 'Congratulation, Vanya! You won',
-		ff : 'sans-serif',
-		textColor : 'black',
-		modalBg : 'orange'
-	})
-})()
-
 function initModal(arg) {
 	if(!arg) arg = {}
 	w = arg.w || 600;
 	h = arg.h || 400;
 	tC = arg.textColor || 'black'
-	t = arg.text || 'Initial text';
-	ff = arg.ff || 'arial'
+	t = arg.text || 'Hey I\'m popup';
+	ff = arg.ff || 'inherit';
+	fz = arg.size || 16;
 	oBg = arg.overlayBg || 'rgba(0,0,0,0.3)';
 	mBg = arg.modalBg || '#eaeaea';
 	$("<div>", {
@@ -30,7 +20,7 @@ function initModal(arg) {
 			left : 0,
 			background : oBg
 		}
-	}).appendTo('body')
+	}).appendTo('body');
 	$("<div>",{
 		class : 'modalWindow',
 		css : {
@@ -47,45 +37,47 @@ function initModal(arg) {
 			opacity : 0,
 			visibility : 'hidden'
 		}
-	}).appendTo('.modalOverlay')
+	}).appendTo('.modalOverlay');
 	$('<div>',{
 		text :  t,
 		css : {
 			'font-family' : ff,
+			'font-size' : fz,
 			margin : 'auto',
 			color : tC,
 			height : 'inherit',
 			'line-height' : h + 'px',
 			'text-align' : 'center'
 		}
-	}).appendTo('.modalWindow')
+	}).appendTo('.modalWindow');
 	function openModal(){
 		$('.modalOverlay').css({
 			opacity : 1,
 			visibility : 'visible'
-		})
+		});
 		$('.modalWindow').css({
 			opacity : 1,
 			visibility : 'visible'
-		})
+		});
 	}
 	function closeModal(){
 		$('.modalOverlay').css({
 			opacity : 0,
 			visibility : 'hidden'
-		})
+		});
 		$('.modalWindow').css({
 			opacity : 0,
 			visibility : 'hidden'
-		})
+		});
 	}
 	$('.modalOverlay').on('click', function(e) {
-		if (e.target !== this)
+		if (e.target !== this){
 			return;
-		closeModal()
+		}
+		closeModal();
 	});
 
 	$('.modalOpen').click(function() {
 		openModal();
-	})
+	});
 }
