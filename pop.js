@@ -25,6 +25,7 @@ function initModal(arg) {
 			height : '100%',
 			width : '100%',
 			top : 0,opacity : 0,
+			transition : 'all ease 300ms',
 			visibility : 'hidden',
 			left : 0,
 			background : oBg
@@ -36,6 +37,7 @@ function initModal(arg) {
 			height: h,
 			width: w,
 			position : 'absolute',
+			transition : 'all ease 300ms',
 			left : 0,
 			right : 0,
 			bottom : 0,
