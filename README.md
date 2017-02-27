@@ -22,5 +22,5 @@ Just add "modalOpen" class to element which should open it. And include this scr
 		modalBg : 'orange' //default #eaeaea
 	})
 </script>
-````html
+````
 
